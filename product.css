@@ -80,6 +80,8 @@
         border: 1rem solid rgba(0, 0, 0, 3);
         display: none;
     }
+
+    
     .heading{
         text-align: center;
         font-size: 4rem;
@@ -177,7 +179,7 @@
 
 
 
-    
+
     @media (max-width:991px) {
         html{
             font-size: 55%;
