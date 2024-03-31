@@ -34,7 +34,7 @@
         background: var(--green);
     }
     header{
-        position: fixed;
+        position: absolute;
         top: 0; left: 0; right: 0;
         background: #fff;
         padding: 2rem 9%;
@@ -173,6 +173,256 @@
         font-weight: lighter;
         text-decoration: line-through;
     }
+
+
+
+
+
+
+    .container{
+        width: 900px;
+        max-width: 90px;
+        margin: auto;
+        text-align: center;
+        padding-top: 10px;
+        transition: transform .2s;
+    }
+    .cartTab{
+        width: 400px;
+        background:rgba(6, 107, 60, 0.09);
+        backdrop-filter: blur(20px);
+        color: #333;
+        position: fixed;
+       inset: 0 -400px 0 auto;
+        display: grid;
+        grid-template-rows:70px lft 70px ;
+    }
+    body.showCart .cartTab{
+        inset: 0 0 0 auto;
+    }
+    body.showCart .container{
+        transform: translate(-250px);
+    }
+    .cartTab h1{
+        padding: 20px;
+        margin: 0;
+        font-weight: 300;
+    }
+    .cartTab .Btn{
+        display: grid;
+        grid-template-columns: repeat(2, 1ft);
+    }
+    .cartTab .Btn button{
+        background-color: var(--green);
+        border: none;
+        font-family: Poppins;
+        font-weight: 500;
+        cursor: pointer;
+    }
+    .cartTab .Btn .close{
+        background-color: #eee;
+    }
+    
+    .cartTab .listCart .item img{
+        width: 100%;
+    }
+    .cartTab .listCart .item{
+        display: grid;
+        grid-template-columns: 70px 150px 50px 1ft;
+        gap: 10px;
+        text-align: center;
+        align-items: center;
+    }
+    .listCart .quantity span{
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        background-color: #eee;
+        color: #555;
+        border-radius: 50%;
+        cursor:pointer;
+    }
+    .listCart .quantity span:nth-child(2){
+        background-color: transparent;
+        color: #333;
+    }
+    .listCart .item:nth-child(even){
+        background-color: #eee1;
+    }
+    .listCart{
+        overflow: auto;
+    }
+    .listCart::-webkit-scrollbar{
+        width: 0;
+    }
+
+
+
+
+    .wrapper{
+        position: absolute;
+        inset: 35% 50% 50% 35%;
+        height: 440px;
+        width: 400px;
+        background:rgba(6, 107, 60, 0.05);
+        backdrop-filter: blur(20px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow:0 .5rem .5rem rgba(0,0,0,1) ;
+        border-radius: 1.5rem;
+        border: .1rem solid rgba(0, 0, 0,1);
+       overflow: hidden;
+       transform: scale(0);
+       transition:transform .5s ease, height .2s ease;
+       }
+    .wrapper.active-popup{
+        transform: scale(1);
+    }
+       .wrapper.active{
+        height: 520px;
+       }
+       .wrapper .form-box{
+        width: 100%;
+        padding: 40px;
+       }
+       .wrapper .form-box.login{
+        transition: transform .18s ease;
+        transform: translateX(0);
+        }
+        .wrapper.active .form-box.login{
+         transition: none;
+         transform: translateX(-400px);
+        }
+       .wrapper .form-box.singin{
+        position: absolute;
+        transition: none;
+        transform: translateX(400px);
+       }
+      .wrapper.active .form-box.singin{
+        transition: transform .18s ease;
+        transform: translateX(0);
+        }
+       .wrapper .icon-close{
+        position: absolute;
+        top:0;
+        right: 0;
+        width: 45px;
+        height: 45px;
+        background: #333;
+        font-size: 2rem;
+        color: #fff;
+        display: flex;
+        justify-self: center;
+        align-items: center;
+        border-bottom-left-radius: 20px;
+        cursor: pointer;
+        z-index: 1;
+       }
+       .form-box h2{
+        font-size: 2rem;
+        color: var(--green);
+        text-align: center;
+       }
+       .input-box{
+        position: relative;
+        width: 100%;
+        height: 50px;
+        border-bottom: 2px solid #666;
+        margin: 30px 0;
+       }
+       .input-box label{
+        position: absolute;
+        top:50%; 
+        left: 5px;
+        transform: translateY(-50%);
+        font-size: 1.3rem;
+        color: #333;
+        font-weight: 500;
+        pointer-events: none;
+        transition: .5s;
+       }
+       .input-box input:focus~label,
+       .input-box input:valid~label{
+        top: -5px; 
+       }
+       .input-box input{
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        border: none;
+        outline: none;
+        font-size: 1em;
+        color: var(--green);
+        font-weight: 600;
+        padding: 0 35px 0 5px;
+    }
+    .input-box .icon{
+        position: absolute;
+        right: 8px;
+        font-size: 1.2rem;
+        color: #333;
+        line-height: 57px;
+    }
+    .remember-forgot{
+        font-size:1.3rem ;
+        color: #333;
+        font-weight:500 ;
+        margin: -15px 0 15px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .remember-forgot label input{
+        accent-color: #333;
+        margin-right: 3px;
+    }
+    .remember-forgot a{
+        color: var(--green);
+        text-decoration: none;
+    }
+    .remember-forgot a:hover{
+        text-decoration: underline;
+    }
+    .BTN{
+        width: 100%;
+        height: 45px;
+        display: inline-block;
+        margin-top: 1rem ;
+        border-radius: 5rem;
+        background: #333;
+        color: #fff;
+        padding: .9rem 3.5rem;
+        cursor: pointer;
+        font-size: 1,7rem;
+    
+    }
+    .BTN:hover{
+        background: var(--green);
+        transition: background .2s ease;
+    }
+        
+    .login-register{
+        font-size: .9rem;
+        color: #333;
+        text-align: center;
+        font-weight: 500;
+        margin: 25px 0 10px;
+    }
+    .login-register p a{
+        color: var(--green);
+        text-decoration: none;
+        font-weight: 600;
+    }
+    .login-register p a:hover{
+        text-decoration: underline;
+    }
+
+
+
+
+
+
+
 
 
 
